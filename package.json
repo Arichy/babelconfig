@@ -1,5 +1,5 @@
 {
-  "name": "babelconf",
+  "name": "babelconfig",
   "version": "1.0.0",
   "description": "基本的babel.config.js的配置，提供了presets和plugins",
   "main": "index.js",
