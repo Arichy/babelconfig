@@ -1,10 +1,10 @@
-const path = require('path')
+var path = require('path')
 
-module.exports = api => {
+module.exports = function (api) {
     api.cache.never()
 
-    const presets = ['@babel/preset-env']
-    const plugins = [
+    var presets = ['@babel/preset-env']
+    var plugins = [
         // ['module-resolver', {
         //     'alias': {
         //         '@src': path.resolve(__dirname, './src')
@@ -22,5 +22,8 @@ module.exports = api => {
         '@babel/plugin-proposal-function-bind'
     ]
 
-    return { presets, plugins }
+    return {
+        presets: presets,
+        plugins: plugins
+    }
 }
