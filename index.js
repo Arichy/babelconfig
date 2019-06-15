@@ -4,3 +4,4 @@ module.exports = {
         plugins: require('./plugins')
     },
     webpack: require('./createWebpackConfig')
+}
