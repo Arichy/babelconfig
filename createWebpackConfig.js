@@ -6,6 +6,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const _ = require('lodash')
 
+/**
+ * 
+ * @param {Array} modules 要构建的模块数组
+ * @desc    生成webpack.entry配置 
+ */
 function getEntry(modules) {
     return modules.reduce((result, module) => {
         return {
@@ -28,7 +33,11 @@ function getExposeLoader(exposes) {
         }
     })
 }
-
+/**
+ * 
+ * @param {Array} exposes 要暴露的全局变量数组，格式为{name:'lodash',module:'_'}
+ * @desc    生成webpack.ProvidePlugin的选项，暴露全局变量
+ */
 function getProvidePlugin(exposes) {
     return _.reduce(exposes, (result, expose) => {
 
@@ -44,7 +53,11 @@ function getProvidePlugin(exposes) {
     }, {})
 }
 
-
+/**
+ * 
+ * @param {Array} modules htmlwebpackplugin处理的数组
+ * @desc    module需要title、filename、chunks、template
+ */
 function getHtmlWebpackPlugin(modules) {
     return modules.reduce((result, module) => {
         return [
@@ -60,6 +73,10 @@ function getHtmlWebpackPlugin(modules) {
     }, [])
 }
 
+/**
+ * 
+ * @desc    生成公共配置
+ */
 function createCommon({ modules, exposes }) {
     return {
         entry: getEntry(modules),
@@ -82,7 +99,7 @@ function createCommon({ modules, exposes }) {
                         options: {
                             limit: 1024 * 4,
                             outputPath: 'web/imgs',
-                            publicPath:'/web/imgs'
+                            publicPath: '/web/imgs'
                             // name:''
                         }
                     }]
@@ -123,7 +140,7 @@ function createCommon({ modules, exposes }) {
 
 /**
  * 
- * @desc 开发环境配置
+ * @desc 生成开发环境配置
  */
 function createDev({ modules, exposes, contentBase }) {
     return merge(createCommon({ modules, exposes }), {
@@ -155,14 +172,12 @@ function createDev({ modules, exposes, contentBase }) {
 
 /**
  * 
- * @desc 生产环境配置
+ * @desc 生成生产环境配置
  */
 function createProd({ modules, exposes, publicPath }) {
     return merge(createCommon({ modules, exposes }), {
         mode: 'production',
-        // output: {
-            // publicPath:'./'
-        // },
+
         plugins: [
             new CleanWebpackPlugin,
             new MiniCssExtractPlugin({
