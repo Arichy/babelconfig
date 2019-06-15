@@ -1,7 +1,7 @@
 {
   "name": "babelconfig",
-  "version": "1.0.2",
-  "description": "基本的babel.config.js的配置，提供了presets和plugins",
+  "version": "2.0.1",
+  "description": "babel和webpack的配置文件",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,8 @@
     "@babel/node": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/plugin-proposal-function-bind": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.4.4",
@@ -22,14 +24,26 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
     "@babel/runtime": "^7.4.5",
+    "@babel/runtime-corejs3": "^7.4.5",
     "babel-loader": "^8.0.6",
     "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-module-resolver": "^3.2.0",
     "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.0.0",
+    "dotenv": "^8.0.0",
+    "expose-loader": "^0.7.5",
+    "file-loader": "^4.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.11",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "url-loader": "^2.0.0",
     "webpack": "^4.34.0",
     "webpack-cli": "^3.3.4",
-    "webpack-dev-server": "^3.7.1"
+    "webpack-dev-server": "^3.7.1",
+    "webpack-merge": "^4.2.1"
   },
   "devDependencies": {},
   "repository": {

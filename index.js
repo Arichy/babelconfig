@@ -3,5 +3,5 @@ module.exports = {
         presets: require('./presets'),
         plugins: require('./plugins')
     },
-    webpack: require('./webpack.config')
+    webpack: require('./createWebpackConfig')
 }
