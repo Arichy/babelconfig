@@ -88,7 +88,7 @@ function createCommon({ modules, exposes }) {
         module: {
             rules: [
                 {
-                    test: /\.jsx?$/,
+                    test: /\.jsx?$/i,
                     exclude: /node_modules/,
                     use: 'babel-loader'
                 },
@@ -103,6 +103,18 @@ function createCommon({ modules, exposes }) {
                             // name:''
                         }
                     }]
+                },
+                {
+                    test: /\.(ttf|eot|svg|woff|woff2)$/i,
+                    use: {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 4 * 1024,
+                            outputPath: 'web/fonts',
+                            publicPath: '/web/fonts'
+                        }
+                    }
+
                 }
                 // ...getExposeLoader(exposes)
             ]
@@ -129,9 +141,9 @@ function createCommon({ modules, exposes }) {
                         name: 'vendors',
                         priority: 10
                     },
-                    commone: {
-                        name: (module, chunks, key) => key
-                    }
+                    // common: {
+                    //     name: (module, chunks, key) => key
+                    // }
                 }
             }
         }
