@@ -1,6 +1,6 @@
 {
   "name": "babelconfig",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "babel和webpack的配置文件",
   "main": "index.js",
   "scripts": {
